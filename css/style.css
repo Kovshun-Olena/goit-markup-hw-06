@@ -22,6 +22,17 @@ h1, h2, h3, h4, h5, h6, p {
     margin: 0;
 }
 
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+picture {
+    max-width: 100%;
+    flex-shrink: 0;
+}
+
 /*common*/
 
 .container {
@@ -30,6 +41,7 @@ h1, h2, h3, h4, h5, h6, p {
     padding: 0 16px;
     margin: 0 auto;
 }
+
 .button {
     cursor: pointer;
 }
@@ -84,6 +96,132 @@ h1, h2, h3, h4, h5, h6, p {
     fill: #2f2f37;
 }
 
+/* mobile menu */
+
+.mob-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    z-index: 1;
+    
+    transition: opacity 250ms 
+    cubic-bezier(0.4, 0, 0.2, 1),
+    visibility 250ms 
+    cubic-bezier(0.4, 0, 0.2, 1);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+}
+
+.mob-menu.is-open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.mob-menu-container {
+    position: relative;
+    padding-top: 72px;
+    padding-bottom: 40px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.mob-close-btn {
+    position: absolute;
+        top: 24px;
+        right: 24px;
+        width: 24px;
+        height: 24px;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        border-radius: 50%;
+        fill: #000;
+        stroke: rgba(0, 0, 0, 0.1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #e7e9fc;
+        padding: 0;
+        cursor: pointer;
+        transition: background-color 250ms 
+        cubic-bezier(0.4, 0, 0.2, 1),
+        border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.mob-close-btn:hover,
+.mob-close-btn:focus {
+    background-color: #404bbf;
+    border-radius: 100%;
+    border: none;
+    fill: #ffffff;
+}
+
+.mob-menu-nav {
+    margin-bottom: auto;
+}
+
+.close-icon {}
+
+.mob-header-nav {}
+
+.mob-nav-list {}
+
+.mob-nav-item:not(:last-child) {
+    margin-bottom: 40px;
+}
+
+.mob-nav-link {
+    font-weight: 700;
+        font-size: 36px;
+        line-height: 1.11;
+        letter-spacing: 0.02em;
+        color: #2e2f42;
+}
+
+
+.current {}
+
+.mob-contacts {
+    /* margin-bottom: 48px; */
+}
+
+.mob-contacts-link {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 1.2;
+    letter-spacing: 0.02em;
+    color: #434455;
+}
+
+.mob-contacts-item {
+    padding-bottom: 24px;
+
+}
+
+.mob-contacts-box {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.mob-container-social-link {
+    display: flex;
+    justify-content: space-between;
+}
+
+.social-link {
+
+}
+
+.social-link-list {}
+
+.icon-a {}
 
 
 /*1section*/
@@ -232,12 +370,7 @@ h1, h2, h3, h4, h5, h6, p {
     /* min-height: 780px; */
 }
 
- img {
-    display: block;
-    max-width: 100%;
-    height: auto;
-}
- 
+  
 .list {
     display: flex;
     flex-wrap: wrap;
@@ -329,18 +462,21 @@ h1, h2, h3, h4, h5, h6, p {
 
 /*4section*/
 .portfolio {
-    padding: 120px 0;
+    /* padding: 120px 0; */
+    padding: 96px 0;
 }
 
 .services {
     display: flex;
     flex-wrap: wrap;
-    column-gap: 24px;
-    row-gap: 48px;
+    /* column-gap: 24px; */
+    /* row-gap: 48px; */
+    gap: 48px;
 }
 
 .type-service {
-    width: calc((100% - 48px) / 3);
+    /* width: calc((100% - 48px) / 3); */
+    width: 100%;
     transition: box-shadow 250ms 
     cubic-bezier(0.4, 0, 0.2, 1);  
 }
@@ -382,8 +518,6 @@ h1, h2, h3, h4, h5, h6, p {
     transition: transform 250ms 
     cubic-bezier(0.4, 0, 0.2, 1);
 }
-
-
 
 
 /*footer*/
@@ -672,7 +806,8 @@ h1, h2, h3, h4, h5, h6, p {
     top: 50%;
     left: 16px;
     transform: translateY(-50%);
-    transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: fill 250ms 
+    cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .modal-input:hover,
@@ -792,16 +927,20 @@ h1, h2, h3, h4, h5, h6, p {
 /* tablet */
 
 @media screen and (min-width: 768px) {
+    
     .container {
         max-width: 768px;
     }
+    
     .list> .container {
         max-width: 584px;
     }
+    
+    .mobal-menu,
     .button-btn {
         display: none;
     }
-    
+   
     .nav-list {
         display: flex;
         align-items: center;
@@ -871,7 +1010,7 @@ h1, h2, h3, h4, h5, h6, p {
         color: #434455;
         transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
     }
-
+/* 1section */
     .box {
         padding: 112px 0;
         background-image:
@@ -896,7 +1035,7 @@ h1, h2, h3, h4, h5, h6, p {
         line-height: 1.07;
         margin-bottom: 36px;
     }
-
+/* 2section */
     .description {
         gap: 72px 24px;     
     }
@@ -906,10 +1045,22 @@ h1, h2, h3, h4, h5, h6, p {
     .description-title {
         text-align: left;
     } 
+    /* 3section */
     .list {
         gap: 64px 24px;
-        /* width: calc((100% - 24px) / 2); */
+        flex-basis: calc((100% - 24px) / 2);
     }
+    /* 4section */
+    .services {
+        column-gap: 24px;
+        row-gap: 72px;     
+    }
+.type-service {
+    width: calc((100% - 24px) / 2);
+   
+}
+
+
 }
 
 /* descktop */
@@ -919,25 +1070,22 @@ h1, h2, h3, h4, h5, h6, p {
         max-width: 1158px;
         padding: 0 15;
     }
-
+/* header */
     .header-logo {
         margin-right: 76px;
     }
-
     .contacts-list {
         flex-direction: row;
         align-items: center;
         gap: 40px;
     }
-
     .contacts-link {
         padding: 24px 0;
         font-size: 16px;
         line-height: 1.5;
         letter-spacing: 0.02em;
     }
-
-
+/* 1section */
     .box {
         padding: 188px 0;
         background-image:
@@ -955,12 +1103,12 @@ h1, h2, h3, h4, h5, h6, p {
             url(../images/people-office-2x.jpg);
             }
     }
-    
     .title-box {
         font-size: 56px;
         line-height: 1.07;
         margin-bottom: 48px;
     }
+    /* 2section */
      .description-text {
         flex-basis: calc((100% - 3*24px) / 4);
     }
@@ -983,13 +1131,21 @@ h1, h2, h3, h4, h5, h6, p {
     .icon-description {
         display: flex;
     }
+    /* 3section */
     .list {
         gap: 24px;
-        /* flex-basis: calc((100% - 3*24px) / 4); */
     }
     .nav-item-img {
         max-width: 264px;
     }
+    /* 4section */
+    .services {
+         column-gap: 24px;
+         row-gap: 48px;
+    }
+        .type-service {
+            width: calc((100% - 48px) / 3);
+        }
 }
 
 
