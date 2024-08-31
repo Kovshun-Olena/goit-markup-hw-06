@@ -505,7 +505,9 @@ picture {
 
 .container.footer {
     display: flex;
-    align-items: baseline;
+    flex-wrap: wrap;
+    flex-direction: column;
+    /* align-items: baseline; */
 }
 
 .page-footer {
@@ -683,11 +685,8 @@ picture {
     top: 50%;
     left: 50%;
     border-radius: 4px;
-    /* min-width: 288px; */
-    width: 100%;
-    max-width: 408px;
-   
-    max-height: 584px;
+    max-width: 288px;
+    min-height: 623px;
     box-shadow: 
     0 1px 1px 0 rgba(0, 0, 0, 0.14), 
     0 1px 3px 0 rgba(0, 0, 0, 0.12), 
@@ -696,7 +695,6 @@ picture {
     transform: translate(-50%, -50%);
     transition: transform 250ms 
     cubic-bezier(0.4, 0, 0.2, 1);
-    
     padding: 72px 16px 24px 16px;
 }
 
@@ -745,9 +743,7 @@ picture {
     letter-spacing: 0.02em;
     text-align: center;
     color: #2e2f42;
-    width: 360px;
     margin-bottom: 16px;
-    word-wrap: break-word;
 }
 
 .form-wrraper-cont {
@@ -843,7 +839,22 @@ picture {
     margin-bottom: 24px;
 }
 
+.custom-lebal-checkbox {
+    display: flex;
+    align-items: center;
+
+    cursor: pointer;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 1.17;
+    letter-spacing: 0.04em;
+    color: #8e8f99;
+
+}
+
 .custom-checkbox {
+    /* flex-shrink: 0; */
+
     border-radius: 2px;
     border: 1px solid rgba(46, 47, 66, 0.4);
     width: 16px;
@@ -866,17 +877,10 @@ picture {
     fill: #F4F4FD;
 }
 
-.custom-lebal-checkbox {
-    cursor: pointer;
-    font-weight: 400;
-    font-size: 12px;
-    line-height: 1.17;
-    letter-spacing: 0.04em;
-    color: #8e8f99;  
-}
+
 
 .privacy-policy {
-    line-height: 1.33333;
+    line-height: 1.33;
     text-decoration: underline;
     text-decoration-skip-ink: none;
     color: #4d5ae5;
@@ -1050,13 +1054,21 @@ picture {
     width: calc((100% - 24px) / 2);
    
 }
-
+/* footer */
+    
+/* backdrop-modal */
     .modal {
-        width: 408px;
-        height: 584px;
+        min-width: 288px;
+        max-width: 408px;
+        min-height: 584px;
         padding: 72px 24px 24px 24px;
     }
 
+    .modal-text{
+        width: 360px;
+    }
+    
+    
 }
 
 /* descktop */
@@ -1146,6 +1158,11 @@ picture {
         .type-service {
             width: calc((100% - 48px) / 3);
         }
+
+    .container.footer {
+         flex-wrap: nowrap;
+         flex-direction: row;
+    }
 }
 
 
